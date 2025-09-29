@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Order Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="thank-you-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-placeholder">POKEMON BUYER</div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="thank-you-main">
+        <div class="container">
+            <!-- Thank You Header -->
+            <section class="thank-you-header">
+                <div class="success-icon">✅</div>
+                <h1 class="thank-you-title">Thank You!</h1>
+                <p class="order-number">Order #<span id="orderNumber">PKM-2024-001</span></p>
+                <p class="confirmation-text">Your offer has been accepted and your order is being processed.</p>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-buttons">
+                <button class="action-btn primary" id="printLabelBtn">
+                    <span class="btn-icon">🖨️</span>
+                    Print Shipping Label
+                </button>
+                <a href="#shipping-guide" class="action-btn secondary" id="shippingGuideBtn">
+                    <span class="btn-icon">📦</span>
+                    View Shipping Guide
+                </a>
+            </section>
+
+            <!-- Payment Method Selection -->
+            <section class="payment-section">
+                <h2 class="section-title">Select Payment Method</h2>
+                <div class="payment-options">
+                    <div class="payment-option" data-method="paypal">
+                        <div class="payment-icon">💳</div>
+                        <div class="payment-info">
+                            <h3>PayPal</h3>
+                            <p>Receive payment directly to your PayPal account</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="paymentMethod" value="paypal" id="paypal">
+                            <label for="paypal"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-option" data-method="bank">
+                        <div class="payment-icon">🏦</div>
+                        <div class="payment-info">
+                            <h3>Bank Transfer</h3>
+                            <p>Direct deposit to your bank account</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="paymentMethod" value="bank" id="bank">
+                            <label for="bank"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-option" data-method="check">
+                        <div class="payment-icon">📄</div>
+                        <div class="payment-info">
+                            <h3>Check</h3>
+                            <p>Receive a physical check by mail</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="paymentMethod" value="check" id="check">
+                            <label for="check"></label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Details Form -->
+                <div class="payment-details" id="paymentDetails" style="display: none;">
+                    <h3>Payment Details</h3>
+                    <form class="payment-form" id="paymentForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group" id="bankDetails" style="display: none;">
+                            <label for="accountNumber">Account Number</label>
+                            <input type="text" id="accountNumber" name="accountNumber">
+                            <label for="routingNumber">Routing Number</label>
+                            <input type="text" id="routingNumber" name="routingNumber">
+                        </div>
+                        <div class="form-group" id="addressDetails" style="display: none;">
+                            <label for="mailingAddress">Mailing Address</label>
+                            <textarea id="mailingAddress" name="mailingAddress" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="submit-payment-btn">Save Payment Method</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Order Summary -->
+            <section class="order-summary">
+                <h2 class="section-title">Order Summary</h2>
+                <div class="summary-card">
+                    <div class="summary-item">
+                        <span class="summary-label">Total Cards:</span>
+                        <span class="summary-value" id="summaryTotalCards">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Offer Amount:</span>
+                        <span class="summary-value offer-amount" id="summaryOfferAmount">$0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Payment Method:</span>
+                        <span class="summary-value" id="summaryPaymentMethod">Not Selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Estimated Processing:</span>
+                        <span class="summary-value">1-2 business days</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Steps -->
+            <section class="next-steps">
+                <h2 class="section-title">What's Next?</h2>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Print Your Shipping Label</h3>
+                            <p>Use the button above to print your prepaid shipping label</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Package Your Cards</h3>
+                            <p>Securely package your cards using the shipping guide</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Ship Your Collection</h3>
+                            <p>Drop off your package at any authorized shipping location</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Receive Payment</h3>
+                            <p>Get paid within 24 hours of us receiving your cards</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Support -->
+            <section class="support-section">
+                <h2 class="section-title">Need Help?</h2>
+                <p class="support-text">If you have any questions about your order or need assistance, our support team is here to help.</p>
+                <div class="support-options">
+                    <a href="mailto:support@pokemonbuyer.com" class="support-btn">
+                        <span class="btn-icon">📧</span>
+                        Email Support
+                    </a>
+                    <a href="tel:555-123-4567" class="support-btn">
+                        <span class="btn-icon">📞</span>
+                        Call Support
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Shipping Guide Modal -->
+    <div class="modal" id="shippingGuideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Shipping Guide</h3>
+                <button class="close-btn" id="closeShippingGuide">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="guide-section">
+                    <h4>How to Package Your Cards</h4>
+                    <ol>
+                        <li>Use a sturdy box or padded envelope</li>
+                        <li>Wrap cards in bubble wrap or protective sleeves</li>
+                        <li>Place cards in a secure container within the package</li>
+                        <li>Add padding to prevent movement during shipping</li>
+                        <li>Seal the package securely with tape</li>
+                    </ol>
+                </div>
+                <div class="guide-section">
+                    <h4>Shipping Instructions</h4>
+                    <ul>
+                        <li>Use the provided prepaid shipping label</li>
+                        <li>Do not write on the package</li>
+                        <li>Drop off at any authorized shipping location</li>
+                        <li>Keep your tracking number for reference</li>
+                    </ul>
+                </div>
+                <div class="guide-section">
+                    <h4>Important Notes</h4>
+                    <ul>
+                        <li>We recommend insuring your package</li>
+                        <li>Take a photo of your packaged cards before shipping</li>
+                        <li>Contact us immediately if there are any issues</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#shipping">Shipping Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: support@pokemonbuyer.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pokemon Card Buyer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="thank-you-script.js"></script>
+</body>
+</html>

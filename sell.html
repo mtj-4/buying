@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Pokemon Cards - 4 Easy Steps</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sell-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-placeholder">POKEMON BUYER</div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="sell-main">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="step-indicators">
+                <div class="step active" data-step="1">1</div>
+                <div class="step" data-step="2">2</div>
+                <div class="step" data-step="3">3</div>
+                <div class="step" data-step="4">4</div>
+            </div>
+        </div>
+
+        <!-- Step 1: Scan Collection -->
+        <section class="step-content active" id="step1">
+            <div class="container">
+                <h1 class="step-title">Step 1: Scan Your Collection</h1>
+                <div class="scan-interface">
+                    <div class="camera-section">
+                        <div class="camera-window">
+                            <div class="camera-placeholder">
+                                <div class="camera-icon">📷</div>
+                                <p>Camera View</p>
+                                <small>Point your camera at a Pokemon card</small>
+                            </div>
+                        </div>
+                        <div class="camera-controls">
+                            <button class="capture-btn" id="captureBtn">
+                                <div class="capture-circle"></div>
+                            </button>
+                            <button class="all-done-btn" id="allDoneBtn">All Done</button>
+                        </div>
+                    </div>
+                    
+                    <div class="collection-section">
+                        <div class="collection-window">
+                            <h3>Your Collection</h3>
+                            <div class="collection-list" id="collectionList">
+                                <div class="empty-collection">
+                                    <p>No cards scanned yet</p>
+                                    <small>Start scanning to build your collection</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="collection-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Cards:</span>
+                                <span class="stat-value" id="totalCards">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Estimated Value:</span>
+                                <span class="stat-value" id="estimatedValue">$0</span>
+                            </div>
+                        </div>
+                        
+                        <button class="help-btn" id="helpBtn">Need Help?</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Make Account -->
+        <section class="step-content" id="step2">
+            <div class="container">
+                <h1 class="step-title">Step 2: Create Your Account</h1>
+                <div class="account-form-container">
+                    <form class="account-form" id="accountForm">
+                        <div class="form-section">
+                            <h3>Account Information</h3>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Shipping Address</h3>
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code</label>
+                                    <input type="text" id="zip" name="zip" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Continue to Step 3</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Verify Collection -->
+        <section class="step-content" id="step3">
+            <div class="container">
+                <h1 class="step-title">Step 3: Verify Your Collection</h1>
+                <div class="verify-content">
+                    <div class="collection-summary">
+                        <h3>Collection Summary</h3>
+                        <div class="collection-list" id="verifyCollectionList">
+                            <!-- Collection items will be populated here -->
+                        </div>
+                        <div class="collection-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Cards:</span>
+                                <span class="stat-value" id="verifyTotalCards">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Estimated Value:</span>
+                                <span class="stat-value" id="verifyEstimatedValue">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verification-actions">
+                        <p class="verification-text">Please review your collection details above. Once you confirm, we'll generate your personalized offer.</p>
+                        <button class="confirm-btn" id="confirmCollectionBtn">Confirm Collection</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Receive Offer -->
+        <section class="step-content" id="step4">
+            <div class="container">
+                <h1 class="step-title">Step 4: Your Offer</h1>
+                <div class="offer-content">
+                    <div class="loading-section" id="loadingSection">
+                        <div class="loading-messages">
+                            <p class="loading-text active">Generating your offer...</p>
+                            <p class="loading-text">Valuing your collection...</p>
+                            <p class="loading-text">Analyzing market prices...</p>
+                            <p class="loading-text">Finalizing details...</p>
+                        </div>
+                        <div class="loading-bar">
+                            <div class="loading-progress" id="loadingProgress"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-section" id="offerSection" style="display: none;">
+                        <div class="offer-amount">
+                            <h2>Your Offer Amount</h2>
+                            <div class="offer-value" id="offerValue">$0</div>
+                            <p class="offer-description">This is our best offer for your collection</p>
+                        </div>
+                        
+                        <div class="collection-summary">
+                            <h3>Your Collection</h3>
+                            <div class="collection-list" id="offerCollectionList">
+                                <!-- Collection items will be populated here -->
+                            </div>
+                        </div>
+                        
+                        <div class="offer-actions">
+                            <button class="accept-btn" id="acceptOfferBtn">Accept Offer</button>
+                            <button class="decline-btn" id="declineOfferBtn">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Help Modal -->
+    <div class="help-modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Need Help?</h3>
+                <button class="close-btn" id="closeHelpBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4>How to Scan Cards</h4>
+                    <ul>
+                        <li>Hold your phone steady over each card</li>
+                        <li>Ensure good lighting</li>
+                        <li>Make sure the entire card is visible</li>
+                        <li>Tap the capture button when ready</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>Tips for Best Results</h4>
+                    <ul>
+                        <li>Use natural lighting when possible</li>
+                        <li>Keep cards flat and clean</li>
+                        <li>Scan one card at a time</li>
+                        <li>Wait for the green checkmark before moving to the next card</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>Common Issues</h4>
+                    <ul>
+                        <li>If scanning fails, try adjusting the angle</li>
+                        <li>Make sure the card is not damaged or bent</li>
+                        <li>Check that your camera lens is clean</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#shipping">Shipping Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: support@pokemonbuyer.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pokemon Card Buyer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sell page JavaScript - inline version
+        let currentStep = 1;
+        let collection = [];
+        let accountData = {};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Sell script loaded and DOM ready');
+            initializeSellPage();
+            setupEventListeners();
+        });
+
+        function initializeSellPage() {
+            updateProgressBar();
+            updateStepIndicators();
+            showStep(1);
+        }
+
+        function setupEventListeners() {
+            const allDoneBtn = document.getElementById('allDoneBtn');
+            
+            if (allDoneBtn) {
+                console.log('All Done button found, adding event listener');
+                allDoneBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('All Done button clicked!');
+                    if (collection.length > 0) {
+                        console.log('Moving to next step');
+                        nextStep();
+                    } else {
+                        if (confirm('No cards scanned yet. Would you like to continue anyway for testing purposes?')) {
+                            console.log('Proceeding without cards for testing');
+                            nextStep();
+                        } else {
+                            alert('Please scan at least one card before continuing.');
+                        }
+                    }
+                });
+            } else {
+                console.error('All Done button not found!');
+                alert('All Done button not found in JavaScript!');
+            }
+            
+            // Step 2: Account Form
+            const accountForm = document.getElementById('accountForm');
+            if (accountForm) {
+                accountForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent default form submission
+                    console.log('Account form submitted');
+                    
+                    // Get form data
+                    const formData = new FormData(accountForm);
+                    const username = formData.get('username');
+                    const password = formData.get('password');
+                    const confirmPassword = formData.get('confirmPassword');
+                    
+                    // Simple validation
+                    if (!username || !password || !confirmPassword) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match. Please try again.');
+                        return;
+                    }
+                    
+                    // Store account data
+                    accountData = {
+                        username,
+                        password,
+                        address: {
+                            street: formData.get('address'),
+                            city: formData.get('city'),
+                            state: formData.get('state'),
+                            zip: formData.get('zip')
+                        }
+                    };
+                    
+                    // Simulate form submission
+                    const submitBtn = accountForm.querySelector('.submit-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Creating Account...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert('Account created successfully!');
+                        nextStep();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                });
+            }
+            
+            // Step 3: Verify Collection
+            const confirmCollectionBtn = document.getElementById('confirmCollectionBtn');
+            if (confirmCollectionBtn) {
+                confirmCollectionBtn.addEventListener('click', () => {
+                    console.log('Confirm collection button clicked');
+                    nextStep();
+                    startOfferGeneration();
+                });
+            }
+            
+            // Step 4: Accept/Decline Offer
+            const acceptOfferBtn = document.getElementById('acceptOfferBtn');
+            const declineOfferBtn = document.getElementById('declineOfferBtn');
+            
+            if (acceptOfferBtn) {
+                acceptOfferBtn.addEventListener('click', () => {
+                    console.log('Accept offer button clicked');
+                    // Redirect to thank you page
+                    window.location.href = 'thank-you.html';
+                });
+            }
+            
+            if (declineOfferBtn) {
+                declineOfferBtn.addEventListener('click', () => {
+                    console.log('Decline offer button clicked');
+                    if (confirm('Are you sure you want to decline this offer? You can always come back later.')) {
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < 4) {
+                currentStep++;
+                showStep(currentStep);
+                updateProgressBar();
+                updateStepIndicators();
+            }
+        }
+
+        function showStep(stepNumber) {
+            const allSteps = document.querySelectorAll('.step-content');
+            allSteps.forEach(step => step.classList.remove('active'));
+            
+            const currentStepEl = document.getElementById(`step${stepNumber}`);
+            if (currentStepEl) {
+                currentStepEl.classList.add('active');
+            }
+        }
+
+        function updateProgressBar() {
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                const progress = (currentStep / 4) * 100;
+                progressFill.style.width = `${progress}%`;
+            }
+        }
+
+        function updateStepIndicators() {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index + 1 < currentStep) {
+                    step.classList.add('completed');
+                } else if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        function startOfferGeneration() {
+            const loadingSection = document.getElementById('loadingSection');
+            const offerSection = document.getElementById('offerSection');
+            
+            if (loadingSection && offerSection) {
+                loadingSection.style.display = 'block';
+                offerSection.style.display = 'none';
+                
+                // Simulate loading process - 4 seconds total
+                const loadingTexts = loadingSection.querySelectorAll('.loading-text');
+                const loadingProgress = document.getElementById('loadingProgress');
+                
+                let currentTextIndex = 0;
+                let progress = 0;
+                
+                // Update loading text every second
+                const textInterval = setInterval(() => {
+                    loadingTexts.forEach((text, index) => {
+                        text.classList.remove('active');
+                    });
+                    if (loadingTexts[currentTextIndex]) {
+                        loadingTexts[currentTextIndex].classList.add('active');
+                    }
+                    currentTextIndex = (currentTextIndex + 1) % loadingTexts.length;
+                }, 1000);
+                
+                // Update progress bar every 100ms for smooth animation
+                const progressInterval = setInterval(() => {
+                    progress += 2.5; // 100% in 4 seconds (100/40 = 2.5)
+                    if (loadingProgress) {
+                        loadingProgress.style.width = `${Math.min(progress, 100)}%`;
+                    }
+                    
+                    if (progress >= 100) {
+                        clearInterval(textInterval);
+                        clearInterval(progressInterval);
+                        setTimeout(() => {
+                            loadingSection.style.display = 'none';
+                            offerSection.style.display = 'block';
+                            showOffer();
+                        }, 500);
+                    }
+                }, 100);
+            }
+        }
+
+        function showOffer() {
+            const totalValue = collection.reduce((sum, card) => sum + card.estimatedValue, 0);
+            const offerAmount = Math.floor(totalValue * 0.85); // 85% of estimated value
+            
+            const offerValueEl = document.getElementById('offerValue');
+            if (offerValueEl) {
+                offerValueEl.textContent = `$${offerAmount}`;
+            }
+        }
+    </script>
+</body>
+</html>

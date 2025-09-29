@@ -1,0 +1,648 @@
+/* Sell Page Specific Styles */
+
+.sell-main {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 100;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    width: 25%;
+    transition: width 0.5s ease;
+}
+
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: #10b981;
+    color: white;
+}
+
+.step.completed {
+    background: #059669;
+    color: white;
+}
+
+/* Step Content */
+.step-content {
+    display: none;
+    padding: 40px 0;
+    min-height: calc(100vh - 200px);
+}
+
+.step-content.active {
+    display: block;
+}
+
+.step-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1f2937;
+}
+
+/* Step 1: Scan Interface */
+.scan-interface {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.camera-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.camera-window {
+    background: #f3f4f6;
+    border-radius: 15px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    border: 2px dashed #d1d5db;
+}
+
+.camera-placeholder {
+    text-align: center;
+    color: #6b7280;
+}
+
+.camera-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.camera-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.capture-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #10b981;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+.capture-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.capture-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #10b981;
+}
+
+.all-done-btn {
+    background: #2563eb;
+    color: white;
+    border: 2px solid #1d4ed8;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.all-done-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.collection-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.collection-window h3 {
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-size: 1.3rem;
+}
+
+.collection-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.empty-collection {
+    text-align: center;
+    color: #6b7280;
+    padding: 40px 20px;
+}
+
+.collection-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: #f9fafb;
+}
+
+.collection-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 15px;
+    background: #e5e7eb;
+}
+
+.collection-item-info {
+    flex: 1;
+}
+
+.collection-item-name {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.collection-item-condition {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.collection-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.help-btn {
+    width: 100%;
+    background: #6b7280;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.help-btn:hover {
+    background: #4b5563;
+}
+
+/* Step 2: Account Form */
+.account-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.form-section h3 {
+    margin-bottom: 25px;
+    color: #1f2937;
+    font-size: 1.3rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #059669;
+}
+
+/* Step 3: Verify Collection */
+.verify-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.collection-summary {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.verification-actions {
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.verification-text {
+    margin-bottom: 25px;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.confirm-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background: #059669;
+}
+
+/* Step 4: Offer */
+.offer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.loading-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.loading-messages {
+    margin-bottom: 30px;
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.loading-text.active {
+    opacity: 1;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.offer-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.offer-amount {
+    margin-bottom: 40px;
+}
+
+.offer-amount h2 {
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-size: 1.5rem;
+}
+
+.offer-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 15px;
+}
+
+.offer-description {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.offer-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.accept-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.accept-btn:hover {
+    background: #059669;
+}
+
+.decline-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.decline-btn:hover {
+    background: #dc2626;
+}
+
+/* Help Modal */
+.help-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.help-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1f2937;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.help-section {
+    margin-bottom: 30px;
+}
+
+.help-section h4 {
+    margin-bottom: 15px;
+    color: #1f2937;
+}
+
+.help-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.help-section li {
+    padding: 8px 0;
+    color: #6b7280;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.help-section li:last-child {
+    border-bottom: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .scan-interface {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .camera-window {
+        height: 250px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .offer-actions {
+        flex-direction: column;
+    }
+    
+    .step-title {
+        font-size: 2rem;
+    }
+    
+    .offer-value {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .progress-container {
+        padding: 15px;
+    }
+    
+    .step-indicators {
+        gap: 10px;
+    }
+    
+    .step {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .camera-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .all-done-btn {
+        width: 100%;
+    }
+    
+    .collection-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .account-form-container,
+    .collection-summary,
+    .verification-actions,
+    .offer-section {
+        padding: 20px;
+        margin: 0 10px;
+    }
+}
