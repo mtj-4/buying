@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell Your Pokemon Cards - 4 Easy Steps</title>
+    <title>Sell Your Cards - 5 Easy Steps</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sell-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,22 +13,19 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <div class="logo-placeholder">POKEMON BUYER</div>
+                <a href="index.html" class="logo-link">
+                    <div class="logo-placeholder">WAX BUYER</div>
+                </a>
             </div>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="account-icon">
+                <a href="account.html" class="account-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
-        <nav class="sidebar" id="sidebar">
-            <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- Main Content -->
@@ -43,173 +40,185 @@
                 <div class="step" data-step="2">2</div>
                 <div class="step" data-step="3">3</div>
                 <div class="step" data-step="4">4</div>
+                <div class="step" data-step="5">5</div>
             </div>
         </div>
 
-        <!-- Step 1: Scan Collection -->
+        <!-- Step 1: Create Account -->
         <section class="step-content active" id="step1">
             <div class="container">
-                <h1 class="step-title">Step 1: Scan Your Collection</h1>
-                <div class="scan-interface">
-                    <div class="camera-section">
-                        <div class="camera-window">
-                            <div class="camera-placeholder">
-                                <div class="camera-icon">📷</div>
-                                <p>Camera View</p>
-                                <small>Point your camera at a Pokemon card</small>
-                            </div>
+                <h1 class="step-title">Step 1: Create Your Account</h1>
+                <div class="form-container">
+                    <form class="account-form" id="accountForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                        <div class="camera-controls">
-                            <button class="capture-btn" id="captureBtn">
-                                <div class="capture-circle"></div>
-                            </button>
-                            <button class="all-done-btn" id="allDoneBtn">All Done</button>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
                         </div>
-                    </div>
-                    
-                    <div class="collection-section">
-                        <div class="collection-window">
-                            <h3>Your Collection</h3>
-                            <div class="collection-list" id="collectionList">
-                                <div class="empty-collection">
-                                    <p>No cards scanned yet</p>
-                                    <small>Start scanning to build your collection</small>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
                         </div>
-                        
-                        <div class="collection-stats">
-                            <div class="stat-item">
-                                <span class="stat-label">Total Cards:</span>
-                                <span class="stat-value" id="totalCards">0</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Estimated Value:</span>
-                                <span class="stat-value" id="estimatedValue">$0</span>
-                            </div>
-                        </div>
-                        
-                        <button class="help-btn" id="helpBtn">Need Help?</button>
-                    </div>
+                        <button type="submit" class="submit-btn">Continue to Step 2</button>
+                    </form>
                 </div>
             </div>
         </section>
 
-        <!-- Step 2: Make Account -->
+        <!-- Step 2: Return Address -->
         <section class="step-content" id="step2">
             <div class="container">
-                <h1 class="step-title">Step 2: Create Your Account</h1>
-                <div class="account-form-container">
-                    <form class="account-form" id="accountForm">
-                        <div class="form-section">
-                            <h3>Account Information</h3>
+                <h1 class="step-title">Step 2: Return Address</h1>
+                <div class="form-container">
+                    <form class="address-form" id="addressForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" name="username" required>
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" required>
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state" required>
                             </div>
                             <div class="form-group">
-                                <label for="confirmPassword">Confirm Password</label>
-                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                <label for="zip">ZIP Code</label>
+                                <input type="text" id="zip" name="zip" required>
                             </div>
                         </div>
-                        
-                        <div class="form-section">
-                            <h3>Shipping Address</h3>
-                            <div class="form-group">
-                                <label for="address">Street Address</label>
-                                <input type="text" id="address" name="address" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" id="city" name="city" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="state">State</label>
-                                    <input type="text" id="state" name="state" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="zip">ZIP Code</label>
-                                    <input type="text" id="zip" name="zip" required>
-                                </div>
-                            </div>
-                        </div>
-                        
                         <button type="submit" class="submit-btn">Continue to Step 3</button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- Step 3: Verify Collection -->
+        <!-- Step 3: Package Dimensions & Terms -->
         <section class="step-content" id="step3">
             <div class="container">
-                <h1 class="step-title">Step 3: Verify Your Collection</h1>
-                <div class="verify-content">
-                    <div class="collection-summary">
-                        <h3>Collection Summary</h3>
-                        <div class="collection-list" id="verifyCollectionList">
-                            <!-- Collection items will be populated here -->
-                        </div>
-                        <div class="collection-stats">
-                            <div class="stat-item">
-                                <span class="stat-label">Total Cards:</span>
-                                <span class="stat-value" id="verifyTotalCards">0</span>
+                <h1 class="step-title">Step 3: Package Details & Terms</h1>
+                <div class="form-container">
+                    <form class="dimensions-form" id="dimensionsForm">
+                        <div class="form-section">
+                            <h3>Package Dimensions</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="length">Length (inches)</label>
+                                    <input type="number" id="length" name="length" step="0.1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="width">Width (inches)</label>
+                                    <input type="number" id="width" name="width" step="0.1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height (inches)</label>
+                                    <input type="number" id="height" name="height" step="0.1" required>
+                                </div>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-label">Estimated Value:</span>
-                                <span class="stat-value" id="verifyEstimatedValue">$0</span>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3>Package Weight</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="weightPounds">Pounds</label>
+                                    <input type="number" id="weightPounds" name="weightPounds" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="weightOunces">Ounces</label>
+                                    <input type="number" id="weightOunces" name="weightOunces" min="0" max="15" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="verification-actions">
-                        <p class="verification-text">Please review your collection details above. Once you confirm, we'll generate your personalized offer.</p>
-                        <button class="confirm-btn" id="confirmCollectionBtn">Confirm Collection</button>
-                    </div>
+                        
+                        <button type="submit" class="submit-btn">Continue to Step 4</button>
+                    </form>
                 </div>
             </div>
         </section>
 
-        <!-- Step 4: Receive Offer -->
+        <!-- Step 4: Payment Method -->
         <section class="step-content" id="step4">
             <div class="container">
-                <h1 class="step-title">Step 4: Your Offer</h1>
-                <div class="offer-content">
-                    <div class="loading-section" id="loadingSection">
-                        <div class="loading-messages">
-                            <p class="loading-text active">Generating your offer...</p>
-                            <p class="loading-text">Valuing your collection...</p>
-                            <p class="loading-text">Analyzing market prices...</p>
-                            <p class="loading-text">Finalizing details...</p>
-                        </div>
-                        <div class="loading-bar">
-                            <div class="loading-progress" id="loadingProgress"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="offer-section" id="offerSection" style="display: none;">
-                        <div class="offer-amount">
-                            <h2>Your Offer Amount</h2>
-                            <div class="offer-value" id="offerValue">$0</div>
-                            <p class="offer-description">This is our best offer for your collection</p>
-                        </div>
-                        
-                        <div class="collection-summary">
-                            <h3>Your Collection</h3>
-                            <div class="collection-list" id="offerCollectionList">
-                                <!-- Collection items will be populated here -->
+                <h1 class="step-title">Step 4: Payment Method</h1>
+                <div class="form-container">
+                    <form class="payment-form" id="paymentForm">
+                        <div class="form-section">
+                            <h3>Choose Payment Method</h3>
+                            <div class="payment-options">
+                                <label class="payment-option" for="paypal">
+                                    <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+                                    <span class="payment-label">PayPal</span>
+                                </label>
+                                <label class="payment-option" for="zelle">
+                                    <input type="radio" id="zelle" name="paymentMethod" value="zelle">
+                                    <span class="payment-label">Zelle</span>
+                                </label>
+                                <label class="payment-option" for="wire">
+                                    <input type="radio" id="wire" name="paymentMethod" value="wire">
+                                    <span class="payment-label">Wire Transfer (Orders $5000+)</span>
+                                </label>
+                                <label class="payment-option" for="venmo">
+                                    <input type="radio" id="venmo" name="paymentMethod" value="venmo">
+                                    <span class="payment-label">Venmo</span>
+                                </label>
                             </div>
                         </div>
                         
-                        <div class="offer-actions">
-                            <button class="accept-btn" id="acceptOfferBtn">Accept Offer</button>
-                            <button class="decline-btn" id="declineOfferBtn">Decline</button>
+                        <div class="form-section">
+                            <h3>Payment Details</h3>
+                            <div class="form-group">
+                                <label for="paymentDetails">Username/Number/Email</label>
+                                <input type="text" id="paymentDetails" name="paymentDetails" placeholder="Enter your username, phone number, or email for payment" required>
+                            </div>
                         </div>
+                        
+                        <button type="submit" class="submit-btn">Complete Order</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 5: Thank You & Label -->
+        <section class="step-content" id="step5">
+            <div class="container">
+                <h1 class="step-title">Step 5: Thank You!</h1>
+                <div class="thank-you-content">
+                    <div class="order-summary">
+                        <h2>Order Confirmation</h2>
+                        <p class="order-number">Order #<span id="orderNumber">2024-001</span></p>
+                        <p class="confirmation-text">Your order has been created successfully!</p>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn primary" id="downloadLabelBtn">
+                            <span class="btn-icon">📄</span>
+                            Download Shipping Label
+                        </button>
+                        <a href="shipping-guide.html" class="action-btn secondary">
+                            <span class="btn-icon">📦</span>
+                            View Shipping Guide
+                        </a>
+                    </div>
+                    
+                    <div class="order-details">
+                        <h3>What's Next?</h3>
+                        <ol class="next-steps">
+                            <li>Download and print your shipping label</li>
+                            <li>Package your cards securely</li>
+                            <li>Attach the label to your package</li>
+                            <li>Drop off at any authorized shipping location</li>
+                            <li>We'll send you an offer within hours of receiving your package</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -259,45 +268,94 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#" class="social-link">Facebook</a>
-                        <a href="#" class="social-link">Twitter</a>
-                        <a href="#" class="social-link">Instagram</a>
+                    <h3>Wax Buyer</h3>
+                    <p>We pay higher for your trading cards. Get the most money for your collection today.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="sell.html">Sell Cards</a>
+                        <a href="account.html">My Account</a>
+                        <a href="shipping-guide.html">Shipping Guide</a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                        <li><a href="#shipping">Shipping Guide</a></li>
-                    </ul>
+                    <h4>Support</h4>
+                    <div class="footer-links">
+                        <a href="mailto:support@waxbuyer.com">support@waxbuyer.com</a>
+                        <a href="index.html#contact">Contact Us</a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>Email: support@pokemonbuyer.com</p>
-                    <p>Phone: (555) 123-4567</p>
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">IG</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Pokemon Card Buyer. All rights reserved.</p>
+                <p>&copy; 2025 Wax Buyer. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="label-generator.js"></script>
     <script>
-        // Sell page JavaScript - inline version
+        // Sell page JavaScript - 5-step process
         let currentStep = 1;
-        let collection = [];
-        let accountData = {};
+        let orderData = {};
 
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('Sell script loaded and DOM ready');
-            initializeSellPage();
+            checkExistingAccount();
             setupEventListeners();
         });
+
+        function checkExistingAccount() {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            
+            if (userData && isLoggedIn) {
+                // User already has an account, skip to step 3
+                currentStep = 3;
+                updateProgressBar();
+                updateStepIndicators();
+                showStep(3);
+                
+                // Pre-populate order data with existing user info
+                orderData.account = { email: userData.email, password: userData.password };
+                orderData.address = {
+                    fullName: userData.fullName,
+                    address: userData.address,
+                    city: userData.city,
+                    state: userData.state,
+                    zip: userData.zip
+                };
+                
+                // Pre-populate payment method in step 4
+                if (userData.paymentMethod && userData.paymentMethod !== 'Not set') {
+                    setTimeout(() => {
+                        const paymentRadio = document.querySelector(`input[value="${userData.paymentMethod.toLowerCase()}"]`);
+                        if (paymentRadio) {
+                            paymentRadio.checked = true;
+                        }
+                        
+                        // Pre-populate payment details
+                        if (userData.paymentDetails) {
+                            document.getElementById('paymentDetails').value = userData.paymentDetails;
+                        }
+                    }, 100);
+                }
+            } else {
+                // No existing account, start from step 1
+                updateProgressBar();
+                updateStepIndicators();
+                showStep(1);
+            }
+        }
 
         function initializeSellPage() {
             updateProgressBar();
@@ -306,115 +364,197 @@
         }
 
         function setupEventListeners() {
-            const allDoneBtn = document.getElementById('allDoneBtn');
-            
-            if (allDoneBtn) {
-                console.log('All Done button found, adding event listener');
-                allDoneBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    console.log('All Done button clicked!');
-                    if (collection.length > 0) {
-                        console.log('Moving to next step');
-                        nextStep();
-                    } else {
-                        if (confirm('No cards scanned yet. Would you like to continue anyway for testing purposes?')) {
-                            console.log('Proceeding without cards for testing');
-                            nextStep();
-                        } else {
-                            alert('Please scan at least one card before continuing.');
-                        }
-                    }
-                });
-            } else {
-                console.error('All Done button not found!');
-                alert('All Done button not found in JavaScript!');
-            }
-            
-            // Step 2: Account Form
+            // Step 1: Account Form
             const accountForm = document.getElementById('accountForm');
             if (accountForm) {
                 accountForm.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent default form submission
-                    console.log('Account form submitted');
-                    
-                    // Get form data
-                    const formData = new FormData(accountForm);
-                    const username = formData.get('username');
-                    const password = formData.get('password');
-                    const confirmPassword = formData.get('confirmPassword');
-                    
-                    // Simple validation
-                    if (!username || !password || !confirmPassword) {
-                        alert('Please fill in all fields.');
-                        return;
-                    }
-                    
-                    if (password !== confirmPassword) {
-                        alert('Passwords do not match. Please try again.');
-                        return;
-                    }
-                    
-                    // Store account data
-                    accountData = {
-                        username,
-                        password,
-                        address: {
-                            street: formData.get('address'),
-                            city: formData.get('city'),
-                            state: formData.get('state'),
-                            zip: formData.get('zip')
-                        }
-                    };
-                    
-                    // Simulate form submission
-                    const submitBtn = accountForm.querySelector('.submit-btn');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Creating Account...';
-                    submitBtn.disabled = true;
-                    
-                    setTimeout(() => {
-                        alert('Account created successfully!');
-                        nextStep();
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 2000);
+                    e.preventDefault();
+                    handleAccountSubmit(e);
                 });
             }
             
-            // Step 3: Verify Collection
-            const confirmCollectionBtn = document.getElementById('confirmCollectionBtn');
-            if (confirmCollectionBtn) {
-                confirmCollectionBtn.addEventListener('click', () => {
-                    console.log('Confirm collection button clicked');
-                    nextStep();
-                    startOfferGeneration();
+            // Step 2: Address Form
+            const addressForm = document.getElementById('addressForm');
+            if (addressForm) {
+                addressForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleAddressSubmit(e);
                 });
             }
             
-            // Step 4: Accept/Decline Offer
-            const acceptOfferBtn = document.getElementById('acceptOfferBtn');
-            const declineOfferBtn = document.getElementById('declineOfferBtn');
-            
-            if (acceptOfferBtn) {
-                acceptOfferBtn.addEventListener('click', () => {
-                    console.log('Accept offer button clicked');
-                    // Redirect to thank you page
-                    window.location.href = 'thank-you.html';
+            // Step 3: Dimensions Form
+            const dimensionsForm = document.getElementById('dimensionsForm');
+            if (dimensionsForm) {
+                dimensionsForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleDimensionsSubmit(e);
                 });
             }
             
-            if (declineOfferBtn) {
-                declineOfferBtn.addEventListener('click', () => {
-                    console.log('Decline offer button clicked');
-                    if (confirm('Are you sure you want to decline this offer? You can always come back later.')) {
-                        window.location.href = 'index.html';
-                    }
+            // Step 4: Payment Form
+            const paymentForm = document.getElementById('paymentForm');
+            if (paymentForm) {
+                paymentForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handlePaymentSubmit(e);
+                });
+            }
+            
+            // Step 5: Download Label
+            const downloadLabelBtn = document.getElementById('downloadLabelBtn');
+            if (downloadLabelBtn) {
+                downloadLabelBtn.addEventListener('click', () => {
+                    generateShippingLabel();
                 });
             }
         }
 
+        function handleAccountSubmit(e) {
+            const formData = new FormData(e.target);
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            orderData.account = { email, password };
+            
+            // Generate customer ID
+            const customerId = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            
+            // Save user data to localStorage
+            const userData = {
+                email: email,
+                customerId: customerId,
+                fullName: '',
+                phone: '',
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                paymentMethod: 'Not set',
+                memberSince: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+                totalEarned: '$0'
+            };
+            
+            localStorage.setItem('userData', JSON.stringify(userData));
+            localStorage.setItem('isLoggedIn', 'true');
+            nextStep();
+        }
+
+        function handleAddressSubmit(e) {
+            const formData = new FormData(e.target);
+            orderData.address = {
+                fullName: formData.get('fullName'),
+                address: formData.get('address'),
+                city: formData.get('city'),
+                state: formData.get('state'),
+                zip: formData.get('zip')
+            };
+            
+            // Update user data with address info
+            const userData = JSON.parse(localStorage.getItem('userData')) || {};
+            userData.fullName = orderData.address.fullName;
+            userData.address = orderData.address.address;
+            userData.city = orderData.address.city;
+            userData.state = orderData.address.state;
+            userData.zip = orderData.address.zip;
+            localStorage.setItem('userData', JSON.stringify(userData));
+            
+            nextStep();
+        }
+
+        function handleDimensionsSubmit(e) {
+            const formData = new FormData(e.target);
+            orderData.package = {
+                length: formData.get('length'),
+                width: formData.get('width'),
+                height: formData.get('height'),
+                weightPounds: formData.get('weightPounds'),
+                weightOunces: formData.get('weightOunces')
+            };
+            nextStep();
+        }
+
+        function handlePaymentSubmit(e) {
+            e.preventDefault();
+            console.log('Payment form submitted!');
+            
+            const formData = new FormData(e.target);
+            const paymentMethod = formData.get('paymentMethod');
+            const paymentDetails = formData.get('paymentDetails');
+            
+            console.log('Payment method:', paymentMethod);
+            console.log('Payment details:', paymentDetails);
+            
+            if (!paymentMethod) {
+                alert('Please select a payment method.');
+                return;
+            }
+            
+            if (!paymentDetails) {
+                alert('Please enter your payment details.');
+                return;
+            }
+            
+            orderData.payment = {
+                method: paymentMethod,
+                details: paymentDetails
+            };
+            
+            // Generate order number
+            orderData.orderNumber = new Date().getFullYear() + '-' + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            
+            // Update user data with payment method and details
+            const userData = JSON.parse(localStorage.getItem('userData')) || {};
+            userData.paymentMethod = orderData.payment.method;
+            userData.paymentDetails = orderData.payment.details;
+            localStorage.setItem('userData', JSON.stringify(userData));
+            
+            // Add customer ID to orderData
+            orderData.customerId = userData.customerId;
+            
+            // Create order record
+            const order = {
+                orderNumber: orderData.orderNumber,
+                status: 'pending',
+                statusText: 'Order Created',
+                trackingNumber: null,
+                completionDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString(),
+                amount: '$0 (Pending Review)',
+                packageInfo: orderData.package,
+                address: orderData.address,
+                payment: orderData.payment,
+                createdAt: new Date().toISOString()
+            };
+            
+            // Save order to localStorage
+            const existingOrdersStr = localStorage.getItem('userOrders');
+            const existingOrders = existingOrdersStr ? JSON.parse(existingOrdersStr) : [];
+            existingOrders.push(order);
+            localStorage.setItem('userOrders', JSON.stringify(existingOrders));
+            
+            // Update order number display
+            const orderNumberEl = document.getElementById('orderNumber');
+            if (orderNumberEl) {
+                orderNumberEl.textContent = orderData.orderNumber;
+            }
+            
+            console.log('Proceeding to next step...');
+            nextStep();
+        }
+
+        function generateShippingLabel() {
+            // Use the LabelGenerator class
+            const labelGen = new LabelGenerator(orderData);
+            labelGen.generatePDF();
+        }
+
         function nextStep() {
-            if (currentStep < 4) {
+            if (currentStep < 5) {
                 currentStep++;
                 showStep(currentStep);
                 updateProgressBar();
@@ -435,7 +575,16 @@
         function updateProgressBar() {
             const progressFill = document.getElementById('progressFill');
             if (progressFill) {
-                const progress = (currentStep / 4) * 100;
+                let progress;
+                
+                if (currentStep <= 2) {
+                    // Steps 1-2: 0-40%
+                    progress = (currentStep / 2) * 40;
+                } else {
+                    // Steps 3-5: 40-100%
+                    progress = 40 + ((currentStep - 2) / 3) * 60;
+                }
+                
                 progressFill.style.width = `${progress}%`;
             }
         }
@@ -444,68 +593,19 @@
             const steps = document.querySelectorAll('.step');
             steps.forEach((step, index) => {
                 step.classList.remove('active', 'completed');
-                if (index + 1 < currentStep) {
+                
+                // If user has existing account, mark steps 1-2 as completed
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                
+                if (userData && isLoggedIn && (index + 1 <= 2)) {
+                    step.classList.add('completed');
+                } else if (index + 1 < currentStep) {
                     step.classList.add('completed');
                 } else if (index + 1 === currentStep) {
                     step.classList.add('active');
                 }
             });
-        }
-
-        function startOfferGeneration() {
-            const loadingSection = document.getElementById('loadingSection');
-            const offerSection = document.getElementById('offerSection');
-            
-            if (loadingSection && offerSection) {
-                loadingSection.style.display = 'block';
-                offerSection.style.display = 'none';
-                
-                // Simulate loading process - 4 seconds total
-                const loadingTexts = loadingSection.querySelectorAll('.loading-text');
-                const loadingProgress = document.getElementById('loadingProgress');
-                
-                let currentTextIndex = 0;
-                let progress = 0;
-                
-                // Update loading text every second
-                const textInterval = setInterval(() => {
-                    loadingTexts.forEach((text, index) => {
-                        text.classList.remove('active');
-                    });
-                    if (loadingTexts[currentTextIndex]) {
-                        loadingTexts[currentTextIndex].classList.add('active');
-                    }
-                    currentTextIndex = (currentTextIndex + 1) % loadingTexts.length;
-                }, 1000);
-                
-                // Update progress bar every 100ms for smooth animation
-                const progressInterval = setInterval(() => {
-                    progress += 2.5; // 100% in 4 seconds (100/40 = 2.5)
-                    if (loadingProgress) {
-                        loadingProgress.style.width = `${Math.min(progress, 100)}%`;
-                    }
-                    
-                    if (progress >= 100) {
-                        clearInterval(textInterval);
-                        clearInterval(progressInterval);
-                        setTimeout(() => {
-                            loadingSection.style.display = 'none';
-                            offerSection.style.display = 'block';
-                            showOffer();
-                        }, 500);
-                    }
-                }, 100);
-            }
-        }
-
-        function showOffer() {
-            const totalValue = collection.reduce((sum, card) => sum + card.estimatedValue, 0);
-            const offerAmount = Math.floor(totalValue * 0.85); // 85% of estimated value
-            
-            const offerValueEl = document.getElementById('offerValue');
-            if (offerValueEl) {
-                offerValueEl.textContent = `$${offerAmount}`;
-            }
         }
     </script>
 </body>

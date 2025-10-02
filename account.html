@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Wax Buyer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="account-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-placeholder">WAX BUYER</div>
+                </a>
+            </div>
+            <div class="account-icon">
+                <a href="account.html" class="account-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="account-main">
+        <div class="account-container">
+            <!-- Login Form (shown when not logged in) -->
+            <div class="login-section" id="loginSection">
+                <div class="login-card">
+                    <h1 class="login-title">Welcome Back</h1>
+                    <p class="login-subtitle">Sign in to access your account and manage your orders.</p>
+                    
+                    <form class="login-form" id="loginForm">
+                        <div class="error-message" id="errorMessage">
+                            Invalid email or password. Please try again.
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="login-btn">Sign In</button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <p>Don't have an account? <a href="sell.html" class="signup-link">Create one here</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Dashboard (shown when logged in) -->
+            <div class="account-dashboard" id="accountDashboard" style="display: none;">
+                <!-- Account Header -->
+                <div class="account-header">
+                    <div class="account-header-content">
+                        <div>
+                            <h1 class="account-title">My Account</h1>
+                            <p class="account-subtitle">Welcome back, <span id="userName">Guest User</span>! Manage your orders and account settings.</p>
+                        </div>
+                        <button class="logout-btn" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-icon profile">👤</div>
+                        <h2 class="card-title">Profile</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Customer ID: <strong id="customerId">000000</strong></p>
+                        <p>Email: <strong id="profileEmail">Not set</strong></p>
+                        <p>Member since: <strong id="memberSince">Not set</strong></p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <div class="card-icon payment">💳</div>
+                        <h2 class="card-title">Payment</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Method: <strong id="paymentMethod">Not set</strong></p>
+                        <p>Details: <strong id="paymentDetails">Not set</strong></p>
+                        <p>Total earned: <strong id="totalEarned">$0</strong></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Orders Section -->
+            <div class="orders-section">
+                <div class="orders-header">
+                    <h2 class="orders-title">Recent Orders</h2>
+                    <div class="order-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalOrders">0</span>
+                            <div class="stat-label">Total Orders</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="pendingOrders">0</span>
+                            <div class="stat-label">Pending</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completedOrders">0</span>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="orders-list" id="ordersList">
+                    <!-- Orders will be populated here -->
+                </div>
+                
+                <div class="empty-state" id="emptyOrders" style="display: none;">
+                    <h3>No orders yet</h3>
+                    <p>Start your first order to see it here.</p>
+                    <a href="sell.html" class="cta-btn">Create Order</a>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <h2 class="card-title" style="margin-bottom: 30px;">Account Information</h2>
+                <form class="profile-form" id="profileForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" id="fullNameInput">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" id="phoneInput">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Street Address</label>
+                        <input type="text" class="form-input" id="addressInput">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-input" id="cityInput">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-input" id="stateInput">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ZIP Code</label>
+                            <input type="text" class="form-input" id="zipInput">
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+            </div> <!-- End account-dashboard -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Wax Buyer</h3>
+                    <p>We pay higher for your trading cards. Get the most money for your collection today.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="sell.html">Sell Cards</a>
+                        <a href="account.html">My Account</a>
+                        <a href="shipping-guide.html">Shipping Guide</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <div class="footer-links">
+                        <a href="mailto:support@waxbuyer.com">support@waxbuyer.com</a>
+                        <a href="index.html#contact">Contact Us</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">IG</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wax Buyer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="label-generator.js"></script>
+    <script>
+
+        // Account Dashboard JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuthentication();
+            setupEventListeners();
+        });
+
+        function checkAuthentication() {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            
+            if (userData && isLoggedIn) {
+                // User is logged in, show dashboard
+                showDashboard();
+                loadUserData();
+                loadOrders();
+            } else {
+                // User is not logged in, show login form
+                showLoginForm();
+            }
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginSection').style.display = 'flex';
+            document.getElementById('accountDashboard').style.display = 'none';
+        }
+
+        function showDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('accountDashboard').style.display = 'block';
+        }
+
+        function setupEventListeners() {
+            // Login form submission
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleLogin();
+                });
+            }
+            
+            // Profile form submission
+            const profileForm = document.getElementById('profileForm');
+            if (profileForm) {
+                profileForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    saveProfileChanges();
+                });
+            }
+            
+            // Logout button
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    handleLogout();
+                });
+            }
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Get stored user data
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            
+            if (userData && userData.email === email && userData.password === password) {
+                // Login successful
+                localStorage.setItem('isLoggedIn', 'true');
+                errorMessage.classList.remove('show');
+                
+                // Show dashboard
+                showDashboard();
+                loadUserData();
+                loadOrders();
+            } else {
+                // Login failed
+                errorMessage.classList.add('show');
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        function handleLogout() {
+            // Clear login status
+            localStorage.setItem('isLoggedIn', 'false');
+            
+            // Clear form fields
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+            
+            // Show login form
+            showLoginForm();
+        }
+
+        function loadUserData() {
+            // Load user data from localStorage (set during order process)
+            const userData = JSON.parse(localStorage.getItem('userData')) || {
+                email: 'Guest User',
+                customerId: '000000',
+                fullName: '',
+                phone: '',
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                paymentMethod: 'Not set',
+                memberSince: 'Not set',
+                totalEarned: '$0'
+            };
+
+            // Update dashboard cards
+            document.getElementById('userName').textContent = userData.fullName || userData.email;
+            document.getElementById('customerId').textContent = userData.customerId;
+            document.getElementById('profileEmail').textContent = userData.email;
+            document.getElementById('memberSince').textContent = userData.memberSince;
+            document.getElementById('totalEarned').textContent = userData.totalEarned;
+            document.getElementById('paymentMethod').textContent = userData.paymentMethod;
+            document.getElementById('paymentDetails').textContent = userData.paymentDetails || 'Not set';
+
+            // Update profile form
+            document.getElementById('fullNameInput').value = userData.fullName;
+            document.getElementById('phoneInput').value = userData.phone;
+            document.getElementById('addressInput').value = userData.address;
+            document.getElementById('cityInput').value = userData.city;
+            document.getElementById('stateInput').value = userData.state;
+            document.getElementById('zipInput').value = userData.zip;
+        }
+
+        function loadOrders() {
+            // Load orders from localStorage
+            const orders = JSON.parse(localStorage.getItem('userOrders')) || [];
+            const ordersList = document.getElementById('ordersList');
+            const emptyOrders = document.getElementById('emptyOrders');
+
+            // Update order counts
+            const totalOrders = orders.length;
+            const pendingOrders = orders.filter(order => order.status === 'pending' || order.status === 'shipped').length;
+            const completedOrders = orders.filter(order => order.status === 'completed').length;
+
+            document.getElementById('totalOrders').textContent = totalOrders;
+            document.getElementById('pendingOrders').textContent = pendingOrders;
+            document.getElementById('completedOrders').textContent = completedOrders;
+
+            if (orders.length === 0) {
+                emptyOrders.style.display = 'block';
+                return;
+            }
+
+            // Sort orders by creation date (most recent first)
+            const sortedOrders = orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            
+            // Generate order HTML
+            ordersList.innerHTML = sortedOrders.map(order => `
+                <div class="order-item">
+                    <div class="order-header">
+                        <div class="order-number">${order.orderNumber}</div>
+                        <div class="order-status status-${order.status}">${order.statusText}</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Tracking Number</div>
+                            <div class="detail-value">${order.trackingNumber || 'Pending'}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Status</div>
+                            <div class="detail-value">${order.statusText}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">${order.status === 'completed' ? 'Completed' : 'Est. Completion'}</div>
+                            <div class="detail-value">${order.completionDate}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">${order.status === 'completed' ? 'Amount Paid' : 'Est. Value'}</div>
+                            <div class="detail-value">${order.amount}</div>
+                        </div>
+                    </div>
+                    <div class="order-actions">
+                        ${order.status === 'completed' ? 
+                            '<a href="#" class="action-btn primary">View Receipt</a>' : 
+                            '<a href="#" class="action-btn primary">Track Package</a>'
+                        }
+                        <a href="#" class="action-btn secondary" onclick="reprintShippingLabel('${order.orderNumber}')">Reprint Shipping Label</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function reprintShippingLabel(orderNumber) {
+            // Get order data from localStorage
+            const orders = JSON.parse(localStorage.getItem('userOrders')) || [];
+            const order = orders.find(o => o.orderNumber === orderNumber);
+            
+            if (order) {
+                // Create order data for label generation
+                const orderData = {
+                    orderNumber: order.orderNumber,
+                    address: order.address,
+                    package: order.packageInfo,
+                    payment: order.payment
+                };
+                
+                // Generate shipping label using the same logic as sell.html
+                if (typeof LabelGenerator !== 'undefined') {
+                    const labelGenerator = new LabelGenerator(orderData);
+                    labelGenerator.generatePDF();
+                } else {
+                    // Fallback if LabelGenerator is not available
+                    alert('Shipping label will be generated for order: ' + orderNumber);
+                }
+            } else {
+                alert('Order not found');
+            }
+        }
+
+        function saveProfileChanges() {
+            const formData = new FormData(document.getElementById('profileForm'));
+            
+            // Get current user data
+            const userData = JSON.parse(localStorage.getItem('userData')) || {};
+            
+            // Update user data
+            userData.fullName = formData.get('fullNameInput') || userData.fullName;
+            userData.phone = formData.get('phoneInput') || userData.phone;
+            userData.address = formData.get('addressInput') || userData.address;
+            userData.city = formData.get('cityInput') || userData.city;
+            userData.state = formData.get('stateInput') || userData.state;
+            userData.zip = formData.get('zipInput') || userData.zip;
+            
+            // Save to localStorage
+            localStorage.setItem('userData', JSON.stringify(userData));
+            
+            // Simulate saving to server
+            const saveBtn = document.querySelector('.save-btn');
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = 'Saving...';
+            saveBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('Profile updated successfully!');
+                saveBtn.textContent = originalText;
+                saveBtn.disabled = false;
+                
+                // Reload data to reflect changes
+                loadUserData();
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

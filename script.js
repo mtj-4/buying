@@ -1,19 +1,4 @@
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const sidebar = document.getElementById('sidebar');
-
-menuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-});
-
-// Close sidebar when clicking outside
-document.addEventListener('click', (e) => {
-    if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-        sidebar.classList.remove('active');
-        menuToggle.classList.remove('active');
-    }
-});
+// Removed sidebar functionality - using simple header now
 
 // Testimonial carousel
 let currentSlide = 0;
@@ -118,42 +103,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add fade-in animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Removed Intersection Observer to improve scroll performance
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.querySelectorAll('.feature-card, .testimonial-slide, .faq-item').forEach(el => {
-    observer.observe(el);
-});
-
-// Header scroll effect
-let lastScrollTop = 0;
-const header = document.querySelector('.header');
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down
-        header.style.transform = 'translateY(-100%)';
-    } else {
-        // Scrolling up
-        header.style.transform = 'translateY(0)';
-    }
-    
-    lastScrollTop = scrollTop;
-});
+// Header stays fixed at top - no scroll effects
 
 // Touch gestures for mobile
 let touchStartX = 0;
